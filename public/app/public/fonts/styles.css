@@ -1,0 +1,11 @@
+@font-face {
+  font-family: 'Century Gothic';
+  src: url('CenturyGothic.ttf') format('truetype');
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+}
+
+* {
+  color: red;
+}

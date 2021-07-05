@@ -1,0 +1,38 @@
+services:
+  app_back:
+    container_name: provi_backend
+    build: .
+    env_file: .env
+    environment:
+      - DB_HOST=mongo
+    volumes:
+      - ./src:/app/src
+    command: npm run start:dev
+    depends_on: [mongo, redis]
+    links: [mongo, redis]
+    ports:
+      - 3001:3001
+    networks:
+      - back
+
+  mongo:
+    container_name: mongo_provi
+    image: mongo
+    restart: always
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: test
+      MONGO_INITDB_ROOT_PASSWORD: test
+    ports:
+      - '27017:27017'
+    networks:
+      - back
+
+  redis:
+    container_name: redis_provi
+    image: redis
+    networks:
+      - back
+
+networks:
+  back:
+    driver: bridge
