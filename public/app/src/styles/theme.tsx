@@ -1,4 +1,4 @@
-import { GlobalStyle } from './global'
+// import { GlobalStyle } from './global'
 import { ThemeProvider } from 'styled-components'
 import * as mixins from './mixins'
 import * as animations from './animations'
@@ -27,7 +27,6 @@ export const theme = {
 
 export const ProviTheme = ({ children }) => (
   <>
-    <GlobalStyle />
     <ThemeProvider theme={theme}>{children}</ThemeProvider>
   </>
 )
